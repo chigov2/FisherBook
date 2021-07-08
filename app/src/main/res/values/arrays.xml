@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fish_array">
+        <item>Карп</item>
+        <item>Щука</item>
+        <item>Сом</item>
+        <item>Линь</item>
+        <item>Налим</item>
+    </string-array>
+    <string-array name="na_array">
+        <item>Черви</item>
+        <item>Каша</item>
+        <item>Хлеб</item>
+        <item>....</item>
+        <item>2.....</item>
+    </string-array>
+    <string-array name="sna_array">
+        <item>Снасть1</item>
+        <item>Снасть2</item>
+        <item>Снасть3</item>
+        <item>Снасть4</item>
+        <item>Снасть5</item>
+    </string-array>
+
+    <string-array name="menu_pri">
+        <item>Прикормка1</item>
+        <item>Прикормка2</item>
+        <item>Прикормка3</item>
+        <item>Прикормка4</item>
+        <item>Прикормка5</item>
+    </string-array>
+    <string-array name="menu_raz">
+        <item>Разное1</item>
+        <item>Разное2</item>
+        <item>Разное3</item>
+        <item>Разное4</item>
+        <item>Разное5</item>
+    </string-array>
+    
+    
+</resources>

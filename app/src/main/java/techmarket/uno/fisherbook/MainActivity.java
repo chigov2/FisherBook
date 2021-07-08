@@ -1,9 +1,11 @@
 package techmarket.uno.fisherbook;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //drawer.openDrawer(GravityCompat.START);
             }
         });
-//урок 4-4 10.57 time code
+            //урок 4-4 10.57 time code
         textBar.setText(getText(R.string.fish));
         textBar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-
         //DrawerLayout drawer = binding.drawerLayout;
         drawer  =findViewById(R.id.drawer_layout);
         //DrawerLayout drawer  =findViewById(R.id.drawer_layout);
@@ -93,7 +95,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        //слушатель меню создается здесь!!!
+        list1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this,Text_Content_Activity.class);//создаем сообщение о переходе на другое окно
+                startActivity(intent);
+            }
+        });
+
     }
+
 
        @Override// создание бокового меню drawer
     public boolean onCreateOptionsMenu(Menu menu) {

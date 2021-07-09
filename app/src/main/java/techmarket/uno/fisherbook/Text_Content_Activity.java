@@ -93,6 +93,7 @@ public class Text_Content_Activity extends AppCompatActivity {
                 case 0:
                     textMainContent.setText(array_fish[position]);
                     imageContent.setImageResource(getArray_image_fish[position]);
+
                     break;
                 case 1:
                     //////////////// создать array
@@ -117,4 +118,5 @@ public class Text_Content_Activity extends AppCompatActivity {
 
 
     }
+
 }

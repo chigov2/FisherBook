@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ImageView img1;
     private ImageView img2;
     private TextView textBar;
+    private int category_index;
 
 
     private ActivityMainBinding binding;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //toolbar = findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         //toolbar.setTitle(R.string.fish);
 
         list1 = findViewById(R.id.listView1);
@@ -100,6 +101,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this,Text_Content_Activity.class);//создаем сообщение о переходе на другое окно
+                // и еще передаем на другое активини информацию
+                //name должно совпасть с именем, когда получаю информацию
+                intent.putExtra("category",category_index);
+                intent.putExtra("position",position);
+                //буду знать, на какую категорию и и какой элементи из listview1 нажали
                 startActivity(intent);
             }
         });
@@ -127,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter1.addAll(array1);
             adapter1.notifyDataSetChanged();
             textBar.setText(R.string.fish);
+            category_index = 0;
         }
         else if (id ==R.id.nav_na)
         {
@@ -135,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter1.addAll(array1);
             adapter1.notifyDataSetChanged();
             textBar.setText(R.string.na);
+            category_index = 1;
         }
         else if (id ==R.id.nav_sna)
         {
@@ -143,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter1.addAll(array1);
             adapter1.notifyDataSetChanged();
             textBar.setText(R.string.sna);
+            category_index = 2;
         }
         else if (id ==R.id.menu_pri)
         {
@@ -151,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter1.addAll(array1);
             adapter1.notifyDataSetChanged();
             textBar.setText(R.string.pri);
+            category_index = 3;
         }
         else if (id ==R.id.menu_raz)
         {
@@ -159,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             adapter1.addAll(array1);
             adapter1.notifyDataSetChanged();
             textBar.setText(R.string.raz);
+            category_index = 4;
         }
 
         drawer.closeDrawer(GravityCompat.START);

@@ -2,6 +2,7 @@ package techmarket.uno.fisherbook;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -17,6 +18,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 //////, @Nullable PersistableBundle persistentState)////////////////////важно удалить
 //////  , persistentStated
 public class Text_Content_Activity extends AppCompatActivity {
+    private Typeface font_lobster;
+    private Typeface font_roboto;
+    private Typeface font_rubik;
     private DrawerLayout drawer;
     private ImageView imageContent;
     private TextView textMainContent;
@@ -71,8 +75,9 @@ public class Text_Content_Activity extends AppCompatActivity {
         img1 = findViewById(R.id.imageView3);
         img2 = findViewById(R.id.imageView4);
         textBar = findViewById(R.id.textView);
-        textMainContent = findViewById(R.id.textMainContent);
-        imageContent = findViewById(R.id.image_content);
+        //textMainContent = findViewById(R.id.textMainContent);   //перенесено в отдельную функцию init
+        //imageContent = findViewById(R.id.image_content);
+        init();
         receiveIntent();
 
 
@@ -117,6 +122,18 @@ public class Text_Content_Activity extends AppCompatActivity {
 
 
 
+    }
+
+    private void init(){
+        textMainContent = findViewById(R.id.textMainContent);   //перенесено в отдельную функцию
+        imageContent = findViewById(R.id.image_content);
+        //после!!!!
+        font_lobster = Typeface.createFromAsset(this.getAssets(),"Fonts/Lobster/Lobster-Regular.ttf");
+        font_roboto = Typeface.createFromAsset(this.getAssets(),"Fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
+        font_rubik = Typeface.createFromAsset(this.getAssets(),"Fonts/Rubik/Rubik-VariableFont_wght.ttf");
+        textMainContent.setTypeface(font_lobster);//присваиваем данный шрифт
+        //textMainContent.setTypeface(font_roboto);//присваиваем данный шрифт
+        //textMainContent.setTypeface(font_rubik);
     }
 
 }

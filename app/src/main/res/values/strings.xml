@@ -132,5 +132,6 @@
         Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже. Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum"
         Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.
     </string>
+    <string name="logo_button">Start</string>
 
 </resources>

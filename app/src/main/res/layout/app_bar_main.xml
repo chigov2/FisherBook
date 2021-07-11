@@ -23,16 +23,18 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
 
             <TextView
                 android:id="@+id/textActionBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:layout_toEndOf="@id/imageView3"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/imageView3"
+                android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
@@ -40,9 +42,11 @@
                 android:id="@+id/buttonSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_menu_manage"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="5dp"
+                app:srcCompat="@drawable/ic_menu_manage" />
 
 
         </RelativeLayout>

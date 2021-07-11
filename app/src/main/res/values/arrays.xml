@@ -7,6 +7,13 @@
         <item>Линь</item>
         <item>Налим</item>
     </string-array>
+    <string-array name="fish_array_2">
+        <item>Карп1</item>
+        <item>Щука1</item>
+        <item>Сом1</item>
+        <item>Линь1</item>
+        <item>Налим1</item>
+    </string-array>
     <string-array name="na_array">
         <item>Черви</item>
         <item>Каша</item>

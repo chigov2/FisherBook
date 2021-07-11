@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ImageView img2;
     private TextView textBar;
     private int category_index;
+    private int[] array_fish_color = new int[] {R.color.red,R.color.yellow,R.color.green,R.color.blue};
 
 
     private ActivityMainBinding binding;
@@ -55,7 +56,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         array1 = getResources().getStringArray(R.array.fish_array);
         //adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,array1);
         //ничего не понятно
-        adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array1)));
+        adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array1)));// adapter принимает только ArraysList, поэтому необходимо преобразовать
+
+        //необходимо моздать класс, который будет хранить данные
+
+
         list1.setAdapter(adapter1);
 
         img1 = findViewById(R.id.imageView3);

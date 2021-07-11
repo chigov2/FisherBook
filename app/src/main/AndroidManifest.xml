@@ -21,8 +21,7 @@
         </activity>
         <activity android:name=".Text_Content_Activity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".settings.SettingsActivity" />
     </application>
 
 </manifest>
-
-<!-- заменить  местами лого и маин активити-->

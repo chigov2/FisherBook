@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         list1.setAdapter(adapter1);
 
         img1 = findViewById(R.id.imageView3);
-        img2 = findViewById(R.id.imageView4);
-        textBar = findViewById(R.id.textView);
+        img2 = findViewById(R.id.buttonSettings);
+        textBar = findViewById(R.id.textActionBar);
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override

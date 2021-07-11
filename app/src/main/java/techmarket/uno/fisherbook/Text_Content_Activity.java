@@ -4,15 +4,11 @@ package techmarket.uno.fisherbook;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;//пришлось добавлять вручную
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 //////, @Nullable PersistableBundle persistentState)////////////////////важно удалить
@@ -35,6 +31,7 @@ public class Text_Content_Activity extends AppCompatActivity {
             R.drawable.som,
             R.drawable.nalim,
             R.drawable.caras};
+    private String[] getArray_title_fish = {"Карп","Щука","Сом", "Линь","Налим"};
 
     private int[] array_fish =
            {R.string.fish0,
@@ -73,8 +70,8 @@ public class Text_Content_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_content);
         img1 = findViewById(R.id.imageView3);
-        img2 = findViewById(R.id.imageView4);
-        textBar = findViewById(R.id.textView);
+        img2 = findViewById(R.id.buttonSettings);
+        textBar = findViewById(R.id.textActionBar);
         //textMainContent = findViewById(R.id.textMainContent);   //перенесено в отдельную функцию init
         //imageContent = findViewById(R.id.image_content);
         init();
@@ -98,6 +95,7 @@ public class Text_Content_Activity extends AppCompatActivity {
                 case 0:
                     textMainContent.setText(array_fish[position]);
                     imageContent.setImageResource(getArray_image_fish[position]);
+                    textBar.setText(getArray_title_fish[position]);////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!
 
                     break;
                 case 1:
@@ -134,6 +132,8 @@ public class Text_Content_Activity extends AppCompatActivity {
         textMainContent.setTypeface(font_lobster);//присваиваем данный шрифт
         //textMainContent.setTypeface(font_roboto);//присваиваем данный шрифт
         //textMainContent.setTypeface(font_rubik);
+
+
     }
 
 }

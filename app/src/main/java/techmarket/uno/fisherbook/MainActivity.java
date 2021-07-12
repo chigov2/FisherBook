@@ -24,20 +24,27 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import techmarket.uno.fisherbook.databinding.ActivityMainBinding;
+import techmarket.uno.fisherbook.utils.customArrayAdapter;
+import techmarket.uno.fisherbook.utils.listItemClass;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private ListView list1;
-    private String[] array1;
-    private ArrayAdapter<String> adapter1;
+    private String[] array1,arraySec_name;
+    //private ArrayAdapter<String> adapter1;
+    private customArrayAdapter adapter1;
     private Toolbar toolbar;
     private ImageView img1;
     private ImageView img2;
     private TextView textBar;
     private int category_index;
-    private int[] array_fish_color = new int[] {R.color.red,R.color.yellow,R.color.green,R.color.blue};
+    private int[] array_fish_color = new int[] {R.color.red,R.color.yellow,R.color.green,R.color.blue,R.color.black};
+    private List<listItemClass> listItemMain;//массив из структур
+    private listItemClass listItem;
+
 
 
     private ActivityMainBinding binding;
@@ -54,11 +61,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         list1 = findViewById(R.id.listView1);
         array1 = getResources().getStringArray(R.array.fish_array);
-        //adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,array1);
-        //ничего не понятно
-        adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array1)));// adapter принимает только ArraysList, поэтому необходимо преобразовать
+        arraySec_name = getResources().getStringArray(R.array.fish_array_2);
+
+        listItemMain = new ArrayList<>();// ArrayList() - встроенная функция!!!
+        //заполнение
+       for (int i = 0; i < array1.length; i++){
+           listItem = new listItemClass();
+           listItem.setName(array1[i]);
+           listItem.setSecond_name(arraySec_name[i]);
+           listItem.setImage_id(array_fish_color[i]);
+           listItemMain.add(listItem);
+       }
+
+
+        //adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array1)));// adapter принимает только ArraysList, поэтому необходимо преобразовать
 
         //необходимо моздать класс, который будет хранить данные
+
+        adapter1 = new customArrayAdapter(this,R.layout.list_view_item_1,listItemMain,getLayoutInflater());
 
 
         list1.setAdapter(adapter1);
@@ -148,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void fillArray(int arrayList, int textTop, int index) {
         array1 = getResources().getStringArray(arrayList);
         adapter1.clear();
-        adapter1.addAll(array1);
+        //adapter1.addAll(array1);
         adapter1.notifyDataSetChanged();
         textBar.setText(textTop);
         category_index = index;

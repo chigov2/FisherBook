@@ -33,7 +33,7 @@ import techmarket.uno.fisherbook.utils.listItemClass;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private ListView list1;
-    private String[] array1,arraySec_name;
+    private String[] array1, arraySec_name;
     //private ArrayAdapter<String> adapter1;
     private customArrayAdapter adapter1;
     private Toolbar toolbar;
@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ImageView img2;
     private TextView textBar;
     private int category_index;
-    private int[] array_fish_color = new int[] {R.color.red,R.color.yellow,R.color.green,R.color.blue,R.color.black};
+    private int[] array_fish_color = new int[]{R.color.red, R.color.yellow, R.color.green, R.color.blue, R.color.black};
+    //для каждой категории новый массив
     private List<listItemClass> listItemMain;//массив из структур
     private listItemClass listItem;
-
 
 
     private ActivityMainBinding binding;
@@ -65,20 +65,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         listItemMain = new ArrayList<>();// ArrayList() - встроенная функция!!!
         //заполнение
-       for (int i = 0; i < array1.length; i++){
-           listItem = new listItemClass();
-           listItem.setName(array1[i]);
-           listItem.setSecond_name(arraySec_name[i]);
-           listItem.setImage_id(array_fish_color[i]);
-           listItemMain.add(listItem);
-       }
-
+        for (int i = 0; i < array1.length; i++) {
+            listItem = new listItemClass();
+            listItem.setName(array1[i]);
+            listItem.setSecond_name(arraySec_name[i]);
+            listItem.setImage_id(array_fish_color[i]);
+            listItemMain.add(listItem);
+        }
 
         //adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array1)));// adapter принимает только ArraysList, поэтому необходимо преобразовать
-
         //необходимо моздать класс, который будет хранить данные
-
-        adapter1 = new customArrayAdapter(this,R.layout.list_view_item_1,listItemMain,getLayoutInflater());
+        adapter1 = new customArrayAdapter(this, R.layout.list_view_item_1, listItemMain, getLayoutInflater());
 
 
         list1.setAdapter(adapter1);
@@ -149,28 +146,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         if (id == R.id.nav_fish) {
             Toast.makeText(this, "Fish pressed", Toast.LENGTH_SHORT).show();
-            // и ничего не происходит - добавлено в строке 49
-            fillArray(R.array.fish_array, R.string.fish, 0);
+            fillArray(R.string.fish,getResources().getStringArray(R.array.fish_array),getResources().getStringArray(R.array.fish_array_2),array_fish_color,0);
         } else if (id == R.id.nav_na) {
-            fillArray(R.array.na_array, R.string.na, 1);
+
         } else if (id == R.id.nav_sna) {
-            fillArray(R.array.sna_array, R.string.sna, 2);
+
         } else if (id == R.id.menu_pri) {
-            fillArray(R.array.menu_pri, R.string.pri, 3);
+
         } else if (id == R.id.menu_raz) {
-            fillArray(R.array.menu_raz, R.string.raz, 4);
+
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void fillArray(int arrayList, int textTop, int index) {
-        array1 = getResources().getStringArray(arrayList);
-        adapter1.clear();
-        //adapter1.addAll(array1);
-        adapter1.notifyDataSetChanged();
+//    private void fillArray(int arrayList, int textTop, int index) {
+//        array1 = getResources().getStringArray(arrayList);
+//        adapter1.clear();
+//        //adapter1.addAll(array1);
+//        adapter1.notifyDataSetChanged();
+//        textBar.setText(textTop);
+//        category_index = index;
+//    }
+
+    private void fillArray(int textTop, String[] nameArray,String[] secName, int[] image,  int index) {
         textBar.setText(textTop);
+        if (adapter1 != null) adapter1.clear();
+
+        for (int i =0; i < nameArray.length; i++)
+        {
+            listItem = new listItemClass();
+            listItem.setName(nameArray[i]);
+            listItem.setSecond_name(secName[i]);
+            listItem.setImage_id(image[i]);
+            listItemMain.add(listItem);
+        }
+        if (adapter1 != null) adapter1.notifyDataSetChanged();
         category_index = index;
     }
 

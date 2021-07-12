@@ -44,6 +44,7 @@ public class customArrayAdapter extends ArrayAdapter<listItemClass> {//соза�
             viewHolder.image = convertView.findViewById(R.id.ivItem);
             viewHolder.secName = convertView.findViewById(R.id.tvSecondName);
             viewHolder.name = convertView.findViewById(R.id.tvName);
+            convertView.setTag(viewHolder);
         }
         else{
             viewHolder = (ViewHolder) convertView.getTag();///////////////?????

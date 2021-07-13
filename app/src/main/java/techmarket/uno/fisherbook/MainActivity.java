@@ -62,16 +62,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         list1 = findViewById(R.id.listView1);
         array1 = getResources().getStringArray(R.array.fish_array);
         arraySec_name = getResources().getStringArray(R.array.fish_array_2);
+        img1 = findViewById(R.id.imageView3);
+        img2 = findViewById(R.id.buttonSettings);
+        textBar = findViewById(R.id.textActionBar);
 
         listItemMain = new ArrayList<>();// ArrayList() - встроенная функция!!!
         //заполнение
-        for (int i = 0; i < array1.length; i++) {
+        fillArray(R.string.fish,getResources().getStringArray(R.array.fish_array),getResources().getStringArray(R.array.fish_array_2),array_fish_color,0);
+
+       /*for (int i = 0; i < array1.length; i++) {
             listItem = new listItemClass();
             listItem.setName(array1[i]);
             listItem.setSecond_name(arraySec_name[i]);
             listItem.setImage_id(array_fish_color[i]);
             listItemMain.add(listItem);
-        }
+        }*/
 
         //adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array1)));// adapter принимает только ArraysList, поэтому необходимо преобразовать
         //необходимо моздать класс, который будет хранить данные
@@ -80,9 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         list1.setAdapter(adapter1);
 
-        img1 = findViewById(R.id.imageView3);
-        img2 = findViewById(R.id.buttonSettings);
-        textBar = findViewById(R.id.textActionBar);
+
 
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,13 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         //урок 4-4 10.57 time code
-        textBar.setText(getText(R.string.fish));
-        textBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawer.openDrawer(GravityCompat.START);
-            }
-        });
+
 
 
         //DrawerLayout drawer = binding.drawerLayout;
@@ -148,13 +145,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(this, "Fish pressed", Toast.LENGTH_SHORT).show();
             fillArray(R.string.fish,getResources().getStringArray(R.array.fish_array),getResources().getStringArray(R.array.fish_array_2),array_fish_color,0);
         } else if (id == R.id.nav_na) {
-
+            fillArray(R.string.na,getResources().getStringArray(R.array.na_array),getResources().getStringArray(R.array.na_array2),array_fish_color,1);
         } else if (id == R.id.nav_sna) {
-
+            fillArray(R.string.sna,getResources().getStringArray(R.array.sna_array),getResources().getStringArray(R.array.sna_array2),array_fish_color,2);
         } else if (id == R.id.menu_pri) {
-
+            fillArray(R.string.pri,getResources().getStringArray(R.array.menu_pri),getResources().getStringArray(R.array.menu_pri2),array_fish_color,3);
         } else if (id == R.id.menu_raz) {
-
+            fillArray(R.string.raz,getResources().getStringArray(R.array.menu_raz),getResources().getStringArray(R.array.menu_raz2),array_fish_color,4);
         }
 
         drawer.closeDrawer(GravityCompat.START);
